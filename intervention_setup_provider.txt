@@ -1,0 +1,13 @@
+In order to use the image intervention package in laravel, you make sure to inject the package classes into the providers and aliases arrays. Find the providers in config >> app.php file and register the ImageServiceProvider and, register aliases and provider in app.php, which is located inside config directory:
+
+
+
+Intervention\Image\ImageServiceProvider::class,
+
+'aliases' => Facade::defaultAliases()->merge([
+        // 'ExampleClass' => App\Example\ExampleClass::class,
+        'Image' => Intervention\Image\Facades\Image::class
+    ])->toArray(),
+
+
+

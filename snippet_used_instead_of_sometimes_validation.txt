@@ -1,0 +1,18 @@
+
+ private function validateRequest()
+    {
+        return tap(request()->validate([
+            'name' => 'required|min:3',
+            'email'=> 'required|email',
+            'active'=>'required',
+            'company_id'=>'required',
+            // 'image'=> 'sometimes|file|image|max:5000',
+        ]), function(){
+            if(request()->hasFile('image'))
+            {
+                request()->validate([
+                    'image'=>'file|image|max:5000'
+                ]);
+            }
+        });
+    }
